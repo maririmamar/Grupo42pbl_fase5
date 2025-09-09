@@ -83,10 +83,10 @@ Os modelos de regressão testados demonstraram um alto poder preditivo, com o **
 
 * **Regressão Linear:** Excelente ajuste, com um R-squared de **1.00**.
 * **Árvore de Decisão:** Bom ajuste, com um R-squared de **0.99**.
-* **Random Forest:** Desempenho superior e robusto, com um $R^2$ de **0.99** e o menor MAE.
+* **Random Forest:** Desempenho superior e robusto, com um R-squared de **0.99** e o menor MAE.
 * **Análise PCA:** Durante a  visualização dos dados, foi identificado que as culturas no geral têm componentes principais similares (variações ambientais e rendimento da safra), já que houve sobreposição de agrupamentos. A cultura de Oil palm fruit não se sobrepõe como as demais, mas ainda assim, os pontos não estão tão distantes com relação às demais culturas.
 
-Os modelos de treinamento com XGBRegressor e SVR apresentaram bons coeficientes de Determinação (R-squared): 0.99. Porém, eles apresentaram MSE muito acima do esperado.
+Os modelos de treinamento com XGBRegressor e SVR também apresentaram bons coeficientes de Determinação (R-squared): 0.99.
 
 A interpretação do resultado dos treinamentos também sugere que as variáveis Precipitação e Umidade específica possuem coeficientes positivos. Assim, um aumento da precipitação e da umidade específica podem indicar um maior rendimento.
 
@@ -113,6 +113,7 @@ Creative Commons Attribution 4.0 International License
 [http://creativecommons.org/licenses/by/4.0](http://creativecommons.org/licenses/by/4.0)
 
 ---
+
 
 
 

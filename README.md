@@ -68,7 +68,7 @@ Para executar o projeto localmente, siga os seguintes passos:
     ```bash
     pip install pandas scikit-learn matplotlib seaborn
     ```
-2.  Baixe o notebook `Capitulo_1_fase_5_grupo_42_copia (2).ipynb` e o arquivo de dados `crop_yield.csv` no mesmo diretório.
+2.  Baixe o notebook `grupo42_pbl_fase5.ipynb` e o arquivo de dados `crop_yield.csv` no mesmo diretório.
 3.  Abra o notebook em um ambiente Jupyter (Jupyter Notebook, JupyterLab, Google Colab, etc.).
 4.  Execute as células do notebook sequencialmente para replicar toda a análise e o treinamento dos modelos.
 
@@ -113,6 +113,7 @@ Creative Commons Attribution 4.0 International License
 [http://creativecommons.org/licenses/by/4.0](http://creativecommons.org/licenses/by/4.0)
 
 ---
+
 
 
 

@@ -8,7 +8,7 @@
 
 ---
 
-# 🌦️ MVP de Monitoramento e Predição de Eventos Meteorológicos com ESP32 + Machine Learning
+# Análise exploratória, identificação de tendências de produtividade e modelos preditivos para prever rendimento de safra
 
 ## 📌 Grupo: 42
 
@@ -110,5 +110,6 @@ Creative Commons Attribution 4.0 International License
 [http://creativecommons.org/licenses/by/4.0](http://creativecommons.org/licenses/by/4.0)
 
 ---
+
 
 

@@ -77,12 +77,14 @@ Para executar o projeto localmente, siga os seguintes passos:
 
 ### 📈 Resultados Principais
 
+Foram identificados poucos outliers da variável Temperatura a 2 m (C) e houveram muitos outliers na variável Rendimento.
+
 Os modelos de regressão testados demonstraram um alto poder preditivo, com o **Random Forest Regressor** apresentando o melhor desempenho geral, com o menor Erro Médio Absoluto (MAE).
 
-* **Regressão Linear:** Excelente ajuste, com um $R^2$ de **1.00**.
-* **Árvore de Decisão:** Bom ajuste, com um $R^2$ de **0.99**.
+* **Regressão Linear:** Excelente ajuste, com um R-squared de **1.00**.
+* **Árvore de Decisão:** Bom ajuste, com um R-squared de **0.99**.
 * **Random Forest:** Desempenho superior e robusto, com um $R^2$ de **0.99** e o menor MAE.
-* **Análise PCA:** Durante a  visualização dos dados, foi identificado que as culturas no geral têm componentes principais similares (variações ambientais e rendimento da safra), já que houve sobreposição de agrupamentos. A cultura de Oil palm fruit não se sobrepõe como as demais, mas ainda assim, os pontos não estão tão distantes com relação às demai culturas.
+* **Análise PCA:** Durante a  visualização dos dados, foi identificado que as culturas no geral têm componentes principais similares (variações ambientais e rendimento da safra), já que houve sobreposição de agrupamentos. A cultura de Oil palm fruit não se sobrepõe como as demais, mas ainda assim, os pontos não estão tão distantes com relação às demais culturas.
 
 Os modelos de treinamento com XGBRegressor e SVR apresentaram bons coeficientes de Determinação (R-squared): 0.99. Porém, eles apresentaram MSE muito acima do esperado.
 
@@ -98,7 +100,7 @@ A cultura Oil palm fruit também demonstra um rendimento maior em relação a ou
 ## 📽️ Demonstração
 
 O vídeo de apoio se encontra na pasta`/video`.
-Link youtube: 
+Link youtube: https://youtu.be/Mb1mIyazTKY
 
 ---
 
@@ -108,4 +110,5 @@ Creative Commons Attribution 4.0 International License
 [http://creativecommons.org/licenses/by/4.0](http://creativecommons.org/licenses/by/4.0)
 
 ---
+
 

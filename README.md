@@ -10,7 +10,7 @@
 
 # 🌦️ MVP de Monitoramento e Predição de Eventos Meteorológicos com ESP32 + Machine Learning
 
-## 📌 Grupo: 46
+## 📌 Grupo: 42
 
 ## 👨‍🎓 Integrantes:
 - Thiago Scutari – RM562831 | thiago.scutari@outlook.com  
@@ -29,109 +29,76 @@
 
 ## 📜 Descrição
 
-Este projeto desenvolve um sistema inteligente de monitoramento ambiental com predição em tempo real de eventos climáticos como **queimadas, geadas e tempestades**, utilizando dados simulados de um sensor **DHT22** conectado a um **ESP32 simulado via Wokwi**. A lógica de predição é baseada em um modelo de **Machine Learning** treinado com **Scikit-Learn**, e os dados são analisados em tempo real através de comunicação serial **RFC2217**.
+
+Este projeto tem como objetivo principal construir e comparar modelos de machine learning para prever o rendimento de diferentes culturas agrícolas. A análise utiliza um conjunto de dados que contém informações sobre variáveis climáticas (precipitação, umidade, temperatura) e o tipo de cultura para prever o rendimento (`Yield`).
+
+As etapas do projeto incluem:
+* Análise Exploratória de Dados.
+* Pré-processamento de Dados, incluindo a conversão da variável `Crop` através de One-Hot Encoding.
+* Visualização de dados com Análise de Componentes Principais (PCA).
+* Treinamento e avaliação de diferentes modelos de regressão: Regressão Linear, Random Forest Regressor, Regressão por Árvores de Decisão, XGBRegressor, SVR.
+
+
 
 ---
 
 ## 🧰 Tecnologias e Recursos
 
-- **ESP32** simulado via Wokwi
-- **Sensor DHT22** emulado
-- **PlatformIO + VSCode** (firmware)
-- **Python 3.10+**
-- **pandas, scikit-learn, joblib**
-- **matplotlib, streamlit**
-- **RFC2217** para leitura remota da serial
-- **Streamlit** para dashboard interativo
+O projeto foi desenvolvido em Python e utiliza as seguintes bibliotecas:
+* **pandas**: Para manipulação e análise de dados.
+* **scikit-learn**: Para a construção de modelos de machine learning (Regressão Linear, Árvore de Decisão, Random Forest, SVR), pré-processamento de dados (StandardScaler) e PCA.
+* **matplotlib** e **seaborn**: Para a criação de gráficos e visualizações.
+
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Arquivos do repositório
 
-```plaintext
-Global_Solutions/
-├── ESP32_Firmware/               # Código embarcado do sensor DHT22 (PlatformIO)
-│   ├── src/main.ino
-│   └── platformio.ini
-│
-├── python_ml/
-│   ├── src/
-│   │   ├── read_serial.py                   # Captura e gravação de dados brutos
-│   │   ├── treinar_modelo.py                # Geração do dataset e modelo
-│   │   ├── prever_evento_metereologico.py   # Monitoramento + predição
-│   │   ├── dashboard_terminal.py            # Gráficos em Matplotlib
-│   │   └── dashboard.py                     # Interface interativa com Streamlit
-│   ├── data/
-│   │   └── previsoes_sensor_YYYYMMDD.csv    # Arquivo gerado com as predições
-│   ├── models/
-│   │   └── modelo_evento.pkl                # Modelo treinado
-│   └── requirements.txt
-│
-├── docs/
-│   └── README.md | estrutura + prints
-├── video/
-│   └── demonstracao.mp4
-└── .gitignore / venv
+* **`Grupo42_pbl_fase5.ipynb`**: O notebook Jupyter que contém todo o código para a análise, pré-processamento, treinamento de modelos e visualização.
+* **`crop_yield.csv`**: O conjunto de dados original utilizado para a análise e o treinamento dos modelos.
+
 ```
 
 ---
 
 ## ▶️ Como Executar
+Para executar o projeto localmente, siga os seguintes passos:
 
-### 🛠️ Requisitos:
-```bash
-pip install -r requirements.txt
-```
+1.  Certifique-se de ter o Python e as bibliotecas mencionadas instaladas. Se não as tiver, pode instalá-las via pip:
+    ```bash
+    pip install pandas scikit-learn matplotlib seaborn
+    ```
+2.  Baixe o notebook `Capitulo_1_fase_5_grupo_42_copia (2).ipynb` e o arquivo de dados `crop_yield.csv` no mesmo diretório.
+3.  Abra o notebook em um ambiente Jupyter (Jupyter Notebook, JupyterLab, Google Colab, etc.).
+4.  Execute as células do notebook sequencialmente para replicar toda a análise e o treinamento dos modelos.
 
-### 🔹 1. Treinar o modelo
-
-```bash
-python python_ml/src/treinar_modelo.py
-```
-
-### 🔹 2. Simular ESP32 com Wokwi
-
-- Configure `rfc2217ServerPort: 4000` no `diagram.json`
-- Inicie a simulação
-
-### 🔹 3. Rodar a predição
-
-```bash
-python python_ml/src/prever_evento_metereologico.py
-```
 
 ---
 
-## 📊 Visualização de Dados
+### 📈 Resultados Principais
 
-### 📈 Dashboard com Matplotlib
+Os modelos de regressão testados demonstraram um alto poder preditivo, com o **Random Forest Regressor** apresentando o melhor desempenho geral, com o menor Erro Médio Absoluto (MAE).
 
-```bash
-python python_ml/src/dashboard_terminal.py
-```
+* **Regressão Linear:** Excelente ajuste, com um $R^2$ de **1.00**.
+* **Árvore de Decisão:** Bom ajuste, com um $R^2$ de **0.99**.
+* **Random Forest:** Desempenho superior e robusto, com um $R^2$ de **0.99** e o menor MAE.
+* **Análise PCA:** Durante a  visualização dos dados, foi identificado que as culturas no geral têm componentes principais similares (variações ambientais e rendimento da safra), já que houve sobreposição de agrupamentos. A cultura de Oil palm fruit não se sobrepõe como as demais, mas ainda assim, os pontos não estão tão distantes com relação às demai culturas.
 
-Exibe:
-- Temperatura e umidade ao longo do tempo
-- Gráfico de barras por tipo de evento
+Os modelos de treinamento com XGBRegressor e SVR apresentaram bons coeficientes de Determinação (R-squared): 0.99. Porém, eles apresentaram MSE muito acima do esperado.
 
----
+A interpretação do resultado dos treinamentos também sugere que as variáveis Precipitação e Umidade específica possuem coeficientes positivos. Assim, um aumento da precipitação e da umidade específica podem indicar um maior rendimento.
 
-## 📋 Lógica de Classificação
+As variáveis Temperatura e Umidade relativa possuem coeficientes negativos. Assim, um aumento da temperatura e da umidade relativa podem indicar um** menor** rendimento.
 
-| Evento      | Temperatura (°C) | Umidade (%) |
-|-------------|------------------|-------------|
-| Geada       | < 4              | > 70        |
-| Queimada    | > 33             | < 40        |
-| Tempestade  | 25 - 32          | > 80        |
-| Normal      | outros casos     |             |
+A cultura Oil palm fruit também demonstra um rendimento maior em relação a outras culturas que tiveram o coeficiente negativo. Isso se confirma com o gráfico de clusterização a partir do DBSCAN.
+
 
 ---
 
 ## 📽️ Demonstração
 
-O vídeo de demonstração com sensor + predição em tempo real encontra-se na pasta `/video`.
-Link youtube: https://youtu.be/lV0VRtBctgo
-LInk Notion: https://sulfuric-print-a0d.notion.site/Global-Solution-205137e83ea580dc8c1dc0e57ae04021
+O vídeo de apoio se encontra na pasta`/video`.
+Link youtube: 
 
 ---
 
@@ -141,3 +108,4 @@ Creative Commons Attribution 4.0 International License
 [http://creativecommons.org/licenses/by/4.0](http://creativecommons.org/licenses/by/4.0)
 
 ---
+

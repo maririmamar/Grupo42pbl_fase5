@@ -97,10 +97,13 @@ A cultura Oil palm fruit também demonstra um rendimento maior em relação a ou
 
 ---
 
-## 📽️ Demonstração
+## 📽️ Demonstração e código
 
 O vídeo de apoio se encontra na pasta`/video`.
 Link youtube: https://youtu.be/Mb1mIyazTKY
+
+Jupyter Notebook:
+https://colab.research.google.com/gist/marianafiap/be20966ec108e7bcfcb74a5c514388a9/grupo42_pbl_fase5.ipynb
 
 ---
 
@@ -110,6 +113,7 @@ Creative Commons Attribution 4.0 International License
 [http://creativecommons.org/licenses/by/4.0](http://creativecommons.org/licenses/by/4.0)
 
 ---
+
 
 
 
